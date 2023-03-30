@@ -12,16 +12,20 @@
 
 
     <div id="app">
-        <section @mouseover="hover = false" @mouseleave="hover = true" class="d-flex justify-content-center align-items-center">
-            {{startSlide}} {{mouseOverLeaveStart}}
+        <section @mouseover="stopSlider" @mouseleave="startSlider" class="d-flex justify-content-center align-items-center">
+             
             <div id="slider-container" class="d-flex">
                 <div id="slider-row">
-                    <div class="slider">
+                    <div class="slider position-relative" :key="images[currentIndex].title">
                         <img :src="images[currentIndex].image" :alt="images[currentIndex].title">
+                        <div class="position-absolute abs">
+                            <h3>{{images[currentIndex].title}}</h3>
+                            <p>{{images[currentIndex].text}}</p>
+                        </div>
                     </div>
                 </div>
                 <div id="slider-column">
-                    <div class="slider" v-for="(element, index) of images" :key="index">
+                    <div class="slider" v-for="(element, index) of images" :key="index" :class="currentIndex === index ? 'border' : '' " @click="sliderColumnChange(index)">
                         <img :src="element.image">
                     </div>
                 </div>

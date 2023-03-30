@@ -20,6 +20,10 @@
     height: 100%;
 }
 
+.border{
+    border: solid 1px white;
+}
+
 
 #slider-row img{
     width: 100%;
@@ -30,4 +34,9 @@
     width: 100%;
     height: calc(300px / 5);
     object-fit: cover;
+}
+.abs{
+    bottom: 0;
+    left: 10px;
+    color: white;
 }
